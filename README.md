@@ -11,4 +11,4 @@
         export QUOTY_PATH=<path-to-quoty>
         alias quoty='python $QUOTY_PATH/quoty.py'
     ```
-    For virtualenv, last line can be done as ```alias quoty='source <path-to-virtualenv> && python $QUOTY_PATH/quoty.py && deactivate'```
+    For virtualenv, last line can be done as ```alias quoty='f(){ source <path-to-virtualenv-activate>; python $QUOTY_PATH/quoty.py $@; deactivate;unset -f f;}; f'```.
