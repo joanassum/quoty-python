@@ -18,10 +18,14 @@ def add(quote, tags):
     # Create csv file for storage if not exist
     open(storage_path, "a")
 
+    if ',' in quote:
+        print("Symbol , is not allowed in quote")
+        return
+
     # Read the csv file to check if the quote already exist.
     with open(storage_path, 'r') as csvfile:
         for line in csvfile:
-            if quote + "," in line:
+            if quote == line.split(",")[0]:
                 print("Quote already exist")
                 return
 
