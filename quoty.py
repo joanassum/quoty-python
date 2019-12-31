@@ -15,6 +15,9 @@ storage_path = os.environ['QUOTY_PATH'] + '/quotes.csv'
 @click.option('-t', '--tags')
 def add(quote, tags):
     """Add a quote."""
+    # Create csv file for storage if not exist
+    open(storage_path, "a")
+
     # Read the csv file to check if the quote already exist.
     with open(storage_path, 'r') as csvfile:
         for line in csvfile:
